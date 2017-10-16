@@ -1,5 +1,5 @@
 #os: test
-#os: Visual Studio 2015
+image: LocalProcImage
 
 #install:
 #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
@@ -11,6 +11,7 @@ install:
 #- ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-desktop.ps1'))
 - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/set-screenresolution.ps1'))
 - ps: Set-ScreenResolution 1600 1200
+- set path=c:\Tools\xUni;%path%
 
 before_build:
   - nuget restore
